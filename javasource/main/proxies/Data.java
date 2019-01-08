@@ -20,11 +20,8 @@ public class Data
 	 */
 	public enum MemberNames
 	{
-		Time("Time"),
-		Temp("Temp"),
-		TempNum("TempNum"),
-		Data_Subscription("Main.Data_Subscription"),
-		Data_Device("Main.Data_Device");
+		Payload("Payload"),
+		Data_Subscription("Main.Data_Subscription");
 
 		private java.lang.String metaName;
 
@@ -120,111 +117,39 @@ public class Data
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
 	/**
-	 * @return value of Time
+	 * @return value of Payload
 	 */
-	public final java.lang.String getTime()
+	public final java.lang.String getPayload()
 	{
-		return getTime(getContext());
+		return getPayload(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of Time
+	 * @return value of Payload
 	 */
-	public final java.lang.String getTime(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.String getPayload(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Time.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Payload.toString());
 	}
 
 	/**
-	 * Set value of Time
-	 * @param time
+	 * Set value of Payload
+	 * @param payload
 	 */
-	public final void setTime(java.lang.String time)
+	public final void setPayload(java.lang.String payload)
 	{
-		setTime(getContext(), time);
+		setPayload(getContext(), payload);
 	}
 
 	/**
-	 * Set value of Time
+	 * Set value of Payload
 	 * @param context
-	 * @param time
+	 * @param payload
 	 */
-	public final void setTime(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String time)
+	public final void setPayload(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String payload)
 	{
-		getMendixObject().setValue(context, MemberNames.Time.toString(), time);
-	}
-
-	/**
-	 * @return value of Temp
-	 */
-	public final java.lang.String getTemp()
-	{
-		return getTemp(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of Temp
-	 */
-	public final java.lang.String getTemp(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Temp.toString());
-	}
-
-	/**
-	 * Set value of Temp
-	 * @param temp
-	 */
-	public final void setTemp(java.lang.String temp)
-	{
-		setTemp(getContext(), temp);
-	}
-
-	/**
-	 * Set value of Temp
-	 * @param context
-	 * @param temp
-	 */
-	public final void setTemp(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String temp)
-	{
-		getMendixObject().setValue(context, MemberNames.Temp.toString(), temp);
-	}
-
-	/**
-	 * @return value of TempNum
-	 */
-	public final java.math.BigDecimal getTempNum()
-	{
-		return getTempNum(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of TempNum
-	 */
-	public final java.math.BigDecimal getTempNum(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.math.BigDecimal) getMendixObject().getValue(context, MemberNames.TempNum.toString());
-	}
-
-	/**
-	 * Set value of TempNum
-	 * @param tempnum
-	 */
-	public final void setTempNum(java.math.BigDecimal tempnum)
-	{
-		setTempNum(getContext(), tempnum);
-	}
-
-	/**
-	 * Set value of TempNum
-	 * @param context
-	 * @param tempnum
-	 */
-	public final void setTempNum(com.mendix.systemwideinterfaces.core.IContext context, java.math.BigDecimal tempnum)
-	{
-		getMendixObject().setValue(context, MemberNames.TempNum.toString(), tempnum);
+		getMendixObject().setValue(context, MemberNames.Payload.toString(), payload);
 	}
 
 	/**
@@ -268,49 +193,6 @@ public class Data
 			getMendixObject().setValue(context, MemberNames.Data_Subscription.toString(), null);
 		else
 			getMendixObject().setValue(context, MemberNames.Data_Subscription.toString(), data_subscription.getMendixObject().getId());
-	}
-
-	/**
-	 * @return value of Data_Device
-	 */
-	public final main.proxies.Device getData_Device() throws com.mendix.core.CoreException
-	{
-		return getData_Device(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of Data_Device
-	 */
-	public final main.proxies.Device getData_Device(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		main.proxies.Device result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Data_Device.toString());
-		if (identifier != null)
-			result = main.proxies.Device.load(context, identifier);
-		return result;
-	}
-
-	/**
-	 * Set value of Data_Device
-	 * @param data_device
-	 */
-	public final void setData_Device(main.proxies.Device data_device)
-	{
-		setData_Device(getContext(), data_device);
-	}
-
-	/**
-	 * Set value of Data_Device
-	 * @param context
-	 * @param data_device
-	 */
-	public final void setData_Device(com.mendix.systemwideinterfaces.core.IContext context, main.proxies.Device data_device)
-	{
-		if (data_device == null)
-			getMendixObject().setValue(context, MemberNames.Data_Device.toString(), null);
-		else
-			getMendixObject().setValue(context, MemberNames.Data_Device.toString(), data_device.getMendixObject().getId());
 	}
 
 	/**

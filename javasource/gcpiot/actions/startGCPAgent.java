@@ -14,6 +14,9 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import gcpiot.impl.GCPAgent;
 
+/**
+ * Starts Subscribe agent for subscribing to Pub/Sub subcriptions for Google. To be run after startup
+ */
 public class startGCPAgent extends CustomJavaAction<java.lang.Boolean>
 {
 	public startGCPAgent(IContext context)

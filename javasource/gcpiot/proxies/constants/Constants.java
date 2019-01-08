@@ -14,9 +14,4 @@ public class Constants
 	{
 		return (java.lang.String)Core.getConfiguration().getConstantValue("GCPIoT.LogNode");
 	}
-
-	public static java.lang.String getTempFilePath()
-	{
-		return (java.lang.String)Core.getConfiguration().getConstantValue("GCPIoT.TempFilePath");
-	}
 }

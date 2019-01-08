@@ -27,37 +27,52 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void shutdown(IContext context)
+	public static void eXAMPLE_Callback(IContext context, java.lang.String _attributes, java.lang.String _payload)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			Core.execute(context, "GCPIoT.Shutdown", params);
+			params.put("Attributes", _attributes);
+			params.put("Payload", _payload);
+			Core.execute(context, "GCPIoT.EXAMPLE_Callback", params);
 		}
 		catch (CoreException e)
 		{
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static boolean startup(IContext context)
+	public static void eXAMPLE_Publish(IContext context)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			return (java.lang.Boolean)Core.execute(context, "GCPIoT.Startup", params);
+			Core.execute(context, "GCPIoT.EXAMPLE_Publish", params);
 		}
 		catch (CoreException e)
 		{
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void subscribeWithCredentialsFile(IContext context, main.proxies.Subscription _subscription)
+	public static void eXAMPLE_Subscribe(IContext context, gcpiot.proxies.GCPCredentials _gCPCredentials, java.lang.String _subscriptionName)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("Subscription", _subscription == null ? null : _subscription.getMendixObject());
-			Core.execute(context, "GCPIoT.SubscribeWithCredentialsFile", params);
+			params.put("GCPCredentials", _gCPCredentials == null ? null : _gCPCredentials.getMendixObject());
+			params.put("SubscriptionName", _subscriptionName);
+			Core.execute(context, "GCPIoT.EXAMPLE_Subscribe", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void eXAMPLE_Unsubscribe(IContext context)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			Core.execute(context, "GCPIoT.EXAMPLE_Unsubscribe", params);
 		}
 		catch (CoreException e)
 		{

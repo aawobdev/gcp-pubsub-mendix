@@ -15,6 +15,9 @@ import com.mendix.webui.CustomJavaAction;
 import gcpiot.impl.GCPAgent;
 import gcpiot.impl.GCPSubscriber;
 
+/**
+ * Terminates all subscribers and stops Subscribe agent for subscribing to Pub/Sub subcriptions for Google. To be run before shutdown
+ */
 public class stopGCPAgent extends CustomJavaAction<java.lang.Boolean>
 {
 	public stopGCPAgent(IContext context)

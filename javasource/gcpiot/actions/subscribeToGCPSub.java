@@ -18,6 +18,18 @@ import gcpiot.impl.GCPAgent;
 import gcpiot.impl.GCPSubscriber;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
+/**
+ * Subscribes to Google Pub/Sub Subscription using sub name and JSON credentials file (https://cloud.google.com/docs/authentication/production#creating_a_service_account)
+ * 
+ * If you do not want to handle failures, specify a Microflow for OnFailure that does nothing
+ * 
+ * OnMessage and OnFailure Microflows are called asynchronously with two String parameters
+ * "Attributes" and "Payload" See "EXAMPLE_Callback" for example
+ * 
+ * Returns String of ProjectId from Credentials file for confirmation
+ * 
+ * See example "EXAMPLE_Subscribe"
+ */
 public class subscribeToGCPSub extends CustomJavaAction<java.lang.String>
 {
 	private IMendixObject __CredentialsFile;

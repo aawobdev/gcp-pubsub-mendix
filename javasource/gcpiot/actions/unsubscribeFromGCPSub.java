@@ -17,6 +17,9 @@ import gcpiot.impl.FileHelper;
 import gcpiot.impl.GCPAgent;
 import gcpiot.impl.GCPSubscriber;
 
+/**
+ * Unsubscribes to Google Pub/Sub Subscription using sub name project id. See example "EXAMPLE_Unsubscribe"
+ */
 public class unsubscribeFromGCPSub extends CustomJavaAction<java.lang.Boolean>
 {
 	private java.lang.String SubscriptionId;

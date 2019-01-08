@@ -22,8 +22,7 @@ public class Subscription
 	{
 		SubId("SubId"),
 		ProjectId("ProjectId"),
-		isAutoSub("isAutoSub"),
-		Chart_Subscription("Chart.Chart_Subscription");
+		isAutoSub("isAutoSub");
 
 		private java.lang.String metaName;
 
@@ -224,49 +223,6 @@ public class Subscription
 	public final void setisAutoSub(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean isautosub)
 	{
 		getMendixObject().setValue(context, MemberNames.isAutoSub.toString(), isautosub);
-	}
-
-	/**
-	 * @return value of Chart_Subscription
-	 */
-	public final chart.proxies.Chart getChart_Subscription() throws com.mendix.core.CoreException
-	{
-		return getChart_Subscription(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of Chart_Subscription
-	 */
-	public final chart.proxies.Chart getChart_Subscription(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		chart.proxies.Chart result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Chart_Subscription.toString());
-		if (identifier != null)
-			result = chart.proxies.Chart.load(context, identifier);
-		return result;
-	}
-
-	/**
-	 * Set value of Chart_Subscription
-	 * @param chart_subscription
-	 */
-	public final void setChart_Subscription(chart.proxies.Chart chart_subscription)
-	{
-		setChart_Subscription(getContext(), chart_subscription);
-	}
-
-	/**
-	 * Set value of Chart_Subscription
-	 * @param context
-	 * @param chart_subscription
-	 */
-	public final void setChart_Subscription(com.mendix.systemwideinterfaces.core.IContext context, chart.proxies.Chart chart_subscription)
-	{
-		if (chart_subscription == null)
-			getMendixObject().setValue(context, MemberNames.Chart_Subscription.toString(), null);
-		else
-			getMendixObject().setValue(context, MemberNames.Chart_Subscription.toString(), chart_subscription.getMendixObject().getId());
 	}
 
 	/**

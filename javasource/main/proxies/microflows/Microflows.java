@@ -10,7 +10,6 @@ import com.mendix.core.Core;
 import com.mendix.core.CoreException;
 import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class Microflows
 {
@@ -41,88 +40,6 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static chart.proxies.Chart dS_Chart_Temperature(IContext context, main.proxies.Subscription _subscription)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("Subscription", _subscription == null ? null : _subscription.getMendixObject());
-			IMendixObject result = (IMendixObject)Core.execute(context, "Main.DS_Chart_Temperature", params);
-			return result == null ? null : chart.proxies.Chart.initialize(context, result);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
-	public static main.proxies.Subscription dS_GetSub(IContext context)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			IMendixObject result = (IMendixObject)Core.execute(context, "Main.DS_GetSub", params);
-			return result == null ? null : main.proxies.Subscription.initialize(context, result);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
-	public static chart.proxies.Chart getChart(IContext context, main.proxies.Subscription _subscription)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("Subscription", _subscription == null ? null : _subscription.getMendixObject());
-			IMendixObject result = (IMendixObject)Core.execute(context, "Main.GetChart", params);
-			return result == null ? null : chart.proxies.Chart.initialize(context, result);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
-	public static chart.proxies.DataSet getDataSet(IContext context, chart.proxies.Chart _chart)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("Chart", _chart == null ? null : _chart.getMendixObject());
-			IMendixObject result = (IMendixObject)Core.execute(context, "Main.GetDataSet", params);
-			return result == null ? null : chart.proxies.DataSet.initialize(context, result);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
-	public static main.proxies.Device getDevice(IContext context, main.proxies.Subscription _subscription, gcpiot.proxies.Attributes _attributesObject)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("Subscription", _subscription == null ? null : _subscription.getMendixObject());
-			params.put("AttributesObject", _attributesObject == null ? null : _attributesObject.getMendixObject());
-			IMendixObject result = (IMendixObject)Core.execute(context, "Main.GetDevice", params);
-			return result == null ? null : main.proxies.Device.initialize(context, result);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
-	public static void home_ShowCharts(IContext context)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			Core.execute(context, "Main.Home_ShowCharts", params);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
 	public static void iVK_Purge(IContext context, main.proxies.Subscription _subscription)
 	{
 		try
@@ -136,26 +53,24 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void setupData(IContext context, chart.proxies.DataSet _dataSet)
+	public static void shutdown(IContext context)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("DataSet", _dataSet == null ? null : _dataSet.getMendixObject());
-			Core.execute(context, "Main.SetupData", params);
+			Core.execute(context, "Main.Shutdown", params);
 		}
 		catch (CoreException e)
 		{
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static boolean sub_RefreshSub(IContext context, main.proxies.Subscription _subscription)
+	public static boolean startup(IContext context)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("Subscription", _subscription == null ? null : _subscription.getMendixObject());
-			return (java.lang.Boolean)Core.execute(context, "Main.Sub_RefreshSub", params);
+			return (java.lang.Boolean)Core.execute(context, "Main.Startup", params);
 		}
 		catch (CoreException e)
 		{
@@ -174,13 +89,26 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void test_Unsub(IContext context, main.proxies.Subscription _subscriptions)
+	public static void subscribeWithCredentialsFile(IContext context, main.proxies.Subscription _subscription)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("Subscription", _subscription == null ? null : _subscription.getMendixObject());
+			Core.execute(context, "Main.SubscribeWithCredentialsFile", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void unSubscribe(IContext context, main.proxies.Subscription _subscriptions)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
 			params.put("Subscriptions", _subscriptions == null ? null : _subscriptions.getMendixObject());
-			Core.execute(context, "Main.Test_Unsub", params);
+			Core.execute(context, "Main.UnSubscribe", params);
 		}
 		catch (CoreException e)
 		{
