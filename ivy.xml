@@ -1,0 +1,11 @@
+<ivy-module version="2.0">
+    <info organisation="com.mendix" module="mxawsconnectors"/>
+    <configurations defaultconfmapping="default">
+        <conf name="default" description="run in modeler" extends="export"/>
+        <conf name="export" description="connector export dependencies only"/>
+    </configurations>
+    <dependencies>
+		<!-- for google pub/sub -->
+		<dependency org="com.google.cloud" name="google-cloud-pubsub" rev="1.55.0"/>
+    </dependencies>
+</ivy-module>
