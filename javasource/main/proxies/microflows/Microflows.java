@@ -53,6 +53,31 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
+	public static void publishMessage(IContext context, main.proxies.PubMessage _pubMessage)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("PubMessage", _pubMessage == null ? null : _pubMessage.getMendixObject());
+			Core.execute(context, "Main.publishMessage", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void showNewTopic(IContext context)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			Core.execute(context, "Main.ShowNewTopic", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
 	public static void shutdown(IContext context)
 	{
 		try
