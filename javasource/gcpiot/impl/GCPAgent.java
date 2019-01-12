@@ -15,12 +15,12 @@ public class GCPAgent
 	private static Map<String, GCPPublisher> gcpPublishers;
 	
 	public Map<String, GCPSubscriber> getGcpSubscribers() {
-		Core.getLogger(GCPAgent.LogNode).warn("Current Subs: "+gcpSubscribers.toString());
+		Core.getLogger(GCPAgent.LogNode).debug("Current Subs: "+gcpSubscribers.toString());
 		return gcpSubscribers;
 	}
 	
 	public Map<String, GCPPublisher> getGcpPublishers() {
-		Core.getLogger(GCPAgent.LogNode).warn("Current Pubs: "+gcpPublishers.toString());
+		Core.getLogger(GCPAgent.LogNode).debug("Current Pubs: "+gcpPublishers.toString());
 		return gcpPublishers;
 	}
 	

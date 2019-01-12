@@ -10,9 +10,11 @@
 package gcpiot.actions;
 
 import java.util.Map;
+import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import gcpiot.impl.GCPAgent;
+import gcpiot.impl.GCPPublisher;
 import gcpiot.impl.GCPSubscriber;
 
 /**
@@ -39,6 +41,16 @@ public class stopGCPAgent extends CustomJavaAction<java.lang.Boolean>
 		    sub.stop();
 		    agent.pullSub(key);
 		}
+		
+		Map<String, GCPPublisher> gpubs = agent.getGcpPublishers();
+		
+		for (String key : gpubs.keySet())
+		{
+		    GCPPublisher pub = gpubs.get(key);
+		    pub.stop();
+		    agent.pullPub(key);
+		}
+		Core.getLogger(GCPAgent.LogNode).info("Succesffully stopped GCP Agent's activities");
 
 		return true;
 		// END USER CODE

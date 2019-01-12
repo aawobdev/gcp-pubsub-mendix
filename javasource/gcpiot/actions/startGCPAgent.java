@@ -30,8 +30,7 @@ public class startGCPAgent extends CustomJavaAction<java.lang.Boolean>
 		// BEGIN USER CODE
 		GCPAgent agent = new GCPAgent();
 		agent.initialize();
-
-		Core.getLogger(GCPAgent.LogNode).info("Listening to: "+agent.getGcpSubscribers().size() + " Subscriptions");
+		Core.getLogger(GCPAgent.LogNode).info("Succesffully started GCP Agent's activities");
 		return true;
 		// END USER CODE
 	}

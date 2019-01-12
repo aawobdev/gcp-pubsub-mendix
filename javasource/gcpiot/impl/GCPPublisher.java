@@ -72,6 +72,11 @@ public class GCPPublisher {
 		}
 	}
 	
+	public boolean stop() throws Exception {
+		publisher.shutdown();
+		return true;
+	}
+	
 	public String getPublisherId()
 	{
 		return publisherId;
