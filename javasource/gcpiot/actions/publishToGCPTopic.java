@@ -9,8 +9,18 @@
 
 package gcpiot.actions;
 
+import java.io.InputStream;
+import com.google.api.core.ApiFuture;
+import com.google.api.core.ApiFutureCallback;
+import com.google.api.core.ApiFutures;
+import com.google.api.gax.rpc.ApiException;
+import com.google.common.util.concurrent.MoreExecutors;
+import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import gcpiot.impl.FileHelper;
+import gcpiot.impl.GCPAgent;
+import gcpiot.impl.GCPPublisher;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 /**
@@ -46,7 +56,59 @@ public class publishToGCPTopic extends CustomJavaAction<java.lang.String>
 		this.CredentialsFile = __CredentialsFile == null ? null : system.proxies.FileDocument.initialize(getContext(), __CredentialsFile);
 
 		// BEGIN USER CODE
-		return "Not implemented yet!";
+		GCPAgent agent = new GCPAgent();
+		String projectId = FileHelper.getProjectId(this.getContext(), __CredentialsFile);
+		ApiFuture<String> future = null;
+
+		if (agent.getPublisher(TopicId + "-" + projectId) == null)
+		{
+			agent.initialize();
+			InputStream credentialsInputFile = FileHelper.getCredentialsFileStream(this.getContext(),__CredentialsFile);		
+			GCPPublisher publisher = new GCPPublisher(TopicId + "-" + projectId, TopicId, projectId,credentialsInputFile );
+			agent.pushPub(publisher);
+			Core.getLogger(GCPAgent.LogNode).debug("Listening to: "+agent.getGcpSubscribers().size() + " Subscriptions");
+		}
+		else
+		{
+			Core.getLogger(GCPAgent.LogNode).info(TopicId + "-" + projectId + " already a publisher");
+		}
+
+		try {
+			GCPPublisher p = agent.getPublisher(TopicId + "-" + projectId);
+			Core.getLogger(GCPAgent.LogNode).debug("Publisher: " + p.getPublisherId());
+
+			if(p!=null)
+			{
+				future = p.publish(Payload);
+				ApiFutures.addCallback(
+						future,
+						new ApiFutureCallback<String>() {
+
+							@Override
+							public void onFailure(Throwable throwable) {
+								if (throwable instanceof ApiException) {
+									ApiException apiException = ((ApiException) throwable);
+									// details on the API exception
+									Core.getLogger(GCPAgent.LogNode).error(apiException.getStatusCode().getCode());
+									Core.getLogger(GCPAgent.LogNode).error(apiException.isRetryable());
+								}
+								Core.getLogger(GCPAgent.LogNode).error("Error publishing message : " + Payload);
+							}
+
+							@Override
+							public void onSuccess(String messageId) {
+								// Once published, returns server-assigned message ids (unique within the topic)
+								Core.getLogger(GCPAgent.LogNode).debug("PUBLISH: Success - " + messageId);
+							}
+						},
+						MoreExecutors.directExecutor());
+			}
+		}
+		catch(Exception e) {
+			Core.getLogger(GCPAgent.LogNode).error(e.getStackTrace());
+		}
+
+		return future.toString();
 		// END USER CODE
 	}
 

@@ -21,7 +21,8 @@ public class PubMessage
 	public enum MemberNames
 	{
 		TopicName("TopicName"),
-		Message("Message");
+		Message("Message"),
+		MessageNumber("MessageNumber");
 
 		private java.lang.String metaName;
 
@@ -178,6 +179,42 @@ public class PubMessage
 	public final void setMessage(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String message)
 	{
 		getMendixObject().setValue(context, MemberNames.Message.toString(), message);
+	}
+
+	/**
+	 * @return value of MessageNumber
+	 */
+	public final java.lang.Integer getMessageNumber()
+	{
+		return getMessageNumber(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of MessageNumber
+	 */
+	public final java.lang.Integer getMessageNumber(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.MessageNumber.toString());
+	}
+
+	/**
+	 * Set value of MessageNumber
+	 * @param messagenumber
+	 */
+	public final void setMessageNumber(java.lang.Integer messagenumber)
+	{
+		setMessageNumber(getContext(), messagenumber);
+	}
+
+	/**
+	 * Set value of MessageNumber
+	 * @param context
+	 * @param messagenumber
+	 */
+	public final void setMessageNumber(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer messagenumber)
+	{
+		getMendixObject().setValue(context, MemberNames.MessageNumber.toString(), messagenumber);
 	}
 
 	/**

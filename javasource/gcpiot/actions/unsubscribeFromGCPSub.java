@@ -13,7 +13,6 @@ import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-import gcpiot.impl.FileHelper;
 import gcpiot.impl.GCPAgent;
 import gcpiot.impl.GCPSubscriber;
 

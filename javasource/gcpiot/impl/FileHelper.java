@@ -10,8 +10,6 @@ import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-import jdk.nashorn.internal.parser.JSONParser;
-
 public class FileHelper {
 	public static InputStream getCredentialsFileStream(IContext context,IMendixObject credentialsFile) throws IOException {
 		

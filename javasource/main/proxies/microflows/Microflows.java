@@ -40,19 +40,6 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void iVK_Purge(IContext context, main.proxies.Subscription _subscription)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("Subscription", _subscription == null ? null : _subscription.getMendixObject());
-			Core.execute(context, "Main.IVK_Purge", params);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
 	public static void publishMessage(IContext context, main.proxies.PubMessage _pubMessage)
 	{
 		try
@@ -66,12 +53,39 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void showNewTopic(IContext context)
+	public static void publishNumMessages(IContext context, main.proxies.PubMessage _pubMessage)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			Core.execute(context, "Main.ShowNewTopic", params);
+			params.put("PubMessage", _pubMessage == null ? null : _pubMessage.getMendixObject());
+			Core.execute(context, "Main.publishNumMessages", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void purge(IContext context, main.proxies.Subscription _subscription)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("Subscription", _subscription == null ? null : _subscription.getMendixObject());
+			Core.execute(context, "Main.Purge", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void showNewPublish(IContext context, main.proxies.Topic _topic)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("Topic", _topic == null ? null : _topic.getMendixObject());
+			Core.execute(context, "Main.ShowNewPublish", params);
 		}
 		catch (CoreException e)
 		{

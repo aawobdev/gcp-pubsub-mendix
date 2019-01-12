@@ -22,7 +22,8 @@ public class Subscription
 	{
 		SubId("SubId"),
 		ProjectId("ProjectId"),
-		isAutoSub("isAutoSub");
+		isAutoSub("isAutoSub"),
+		Subscription_Topic("Main.Subscription_Topic");
 
 		private java.lang.String metaName;
 
@@ -223,6 +224,49 @@ public class Subscription
 	public final void setisAutoSub(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean isautosub)
 	{
 		getMendixObject().setValue(context, MemberNames.isAutoSub.toString(), isautosub);
+	}
+
+	/**
+	 * @return value of Subscription_Topic
+	 */
+	public final main.proxies.Topic getSubscription_Topic() throws com.mendix.core.CoreException
+	{
+		return getSubscription_Topic(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Subscription_Topic
+	 */
+	public final main.proxies.Topic getSubscription_Topic(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		main.proxies.Topic result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Subscription_Topic.toString());
+		if (identifier != null)
+			result = main.proxies.Topic.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of Subscription_Topic
+	 * @param subscription_topic
+	 */
+	public final void setSubscription_Topic(main.proxies.Topic subscription_topic)
+	{
+		setSubscription_Topic(getContext(), subscription_topic);
+	}
+
+	/**
+	 * Set value of Subscription_Topic
+	 * @param context
+	 * @param subscription_topic
+	 */
+	public final void setSubscription_Topic(com.mendix.systemwideinterfaces.core.IContext context, main.proxies.Topic subscription_topic)
+	{
+		if (subscription_topic == null)
+			getMendixObject().setValue(context, MemberNames.Subscription_Topic.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.Subscription_Topic.toString(), subscription_topic.getMendixObject().getId());
 	}
 
 	/**

@@ -18,6 +18,7 @@ public class UserActionsRegistrar
     registrator.registerUserAction(gcpiot.actions.stopGCPAgent.class);
     registrator.registerUserAction(gcpiot.actions.subscribeToGCPSub.class);
     registrator.registerUserAction(gcpiot.actions.unsubscribeFromGCPSub.class);
+    registrator.registerUserAction(main.actions.sleep.class);
     registrator.registerUserAction(system.actions.VerifyPassword.class);
   }
 }
