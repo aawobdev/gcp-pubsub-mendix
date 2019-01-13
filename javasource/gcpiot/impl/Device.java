@@ -1,15 +1,5 @@
 package gcpiot.impl;
 
-import java.io.IOException;
-import java.io.InputStream;
-
-import com.google.cloud.iot.v1.DeviceManagerClient;
-import com.google.cloud.iot.v1.DeviceManagerSettings;
-import com.google.cloud.iot.v1.DeviceName;
-import com.google.cloud.iot.v1.SendCommandToDeviceRequest;
-import com.google.cloud.iot.v1.SendCommandToDeviceResponse;
-import com.google.protobuf.ByteString;
-
 public class Device {
 	
 	private String deviceId;

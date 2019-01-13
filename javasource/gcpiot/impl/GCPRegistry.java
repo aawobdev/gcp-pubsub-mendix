@@ -39,7 +39,10 @@ public class GCPRegistry {
 			gcpDevices = new HashMap<String, Device>();
 		}
 		
-		settings = DeviceManagerSettings.newBuilder().setCredentialsProvider(new CredentialProvider(authStream)).build();
+		
+		
+		CredentialProvider creds = new CredentialProvider(authStream);
+		settings = DeviceManagerSettings.newBuilder().setCredentialsProvider(creds).build();
 		client = DeviceManagerClient.create(settings);
 		return this;
 	}

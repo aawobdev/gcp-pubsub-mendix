@@ -1,7 +1,6 @@
 package gcpiot.impl;
 
 import com.google.cloud.pubsub.v1.Publisher;
-import com.google.cloud.pubsub.v1.stub.PublisherStub;
 import com.google.pubsub.v1.ProjectTopicName;
 import com.google.api.core.ApiFuture;
 import com.google.api.core.ApiFutures;

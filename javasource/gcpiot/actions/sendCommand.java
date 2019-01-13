@@ -11,7 +11,7 @@ package gcpiot.actions;
 
 import java.io.InputStream;
 import com.google.api.client.http.HttpRequestInitializer;
-import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
+import com.google.cloud.iot.v1.SendCommandToDeviceResponse;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
@@ -23,19 +23,6 @@ import gcpiot.impl.Agent;
 import gcpiot.impl.CredentialProvider;
 import gcpiot.impl.Device;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.api.client.util.Charsets;
-import com.google.cloud.Role;
-import com.google.cloud.iot.v1.DeviceManagerClient;
-import com.google.cloud.iot.v1.DeviceName;
-import com.google.cloud.iot.v1.SendCommandToDeviceResponse;
-import com.google.cloud.pubsub.v1.TopicAdminClient;
-import com.google.common.io.Files;
-import com.google.iam.v1.Binding;
-import com.google.protobuf.ByteString;
-import com.google.pubsub.v1.Topic;
-import com.google.pubsub.v1.TopicName;
 
 public class sendCommand extends CustomJavaAction<java.lang.Boolean>
 {
