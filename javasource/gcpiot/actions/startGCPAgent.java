@@ -12,7 +12,7 @@ package gcpiot.actions;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-import gcpiot.impl.GCPAgent;
+import gcpiot.impl.Agent;
 
 /**
  * Starts Subscribe agent for subscribing to Pub/Sub subcriptions for Google. To be run after startup
@@ -28,9 +28,9 @@ public class startGCPAgent extends CustomJavaAction<java.lang.Boolean>
 	public java.lang.Boolean executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		GCPAgent agent = new GCPAgent();
+		Agent agent = new Agent();
 		agent.initialize();
-		Core.getLogger(GCPAgent.LogNode).info("Succesffully started GCP Agent's activities");
+		Core.getLogger(Agent.LogNode).info("Succesffully started GCP Agent's activities");
 		return true;
 		// END USER CODE
 	}

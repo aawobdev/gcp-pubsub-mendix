@@ -13,7 +13,7 @@ import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-import gcpiot.impl.GCPAgent;
+import gcpiot.impl.Agent;
 import gcpiot.impl.GCPPublisher;
 import gcpiot.impl.GCPSubscriber;
 
@@ -31,7 +31,7 @@ public class stopGCPAgent extends CustomJavaAction<java.lang.Boolean>
 	public java.lang.Boolean executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		GCPAgent agent = new GCPAgent();
+		Agent agent = new Agent();
 		agent.initialize();
 		Map<String, GCPSubscriber> gsubs = agent.getGcpSubscribers();
 		
@@ -50,7 +50,7 @@ public class stopGCPAgent extends CustomJavaAction<java.lang.Boolean>
 		    pub.stop();
 		    agent.pullPub(key);
 		}
-		Core.getLogger(GCPAgent.LogNode).info("Succesffully stopped GCP Agent's activities");
+		Core.getLogger(Agent.LogNode).info("Succesffully stopped GCP Agent's activities");
 
 		return true;
 		// END USER CODE

@@ -13,7 +13,7 @@ import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-import gcpiot.impl.GCPAgent;
+import gcpiot.impl.Agent;
 import gcpiot.impl.GCPSubscriber;
 
 /**
@@ -35,32 +35,32 @@ public class unsubscribeFromGCPSub extends CustomJavaAction<java.lang.Boolean>
 	public java.lang.Boolean executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		Core.getLogger(GCPAgent.LogNode).debug("Trying to unsubscribe: " + SubscriptionId);
-		GCPAgent agent = new GCPAgent();
+		Core.getLogger(Agent.LogNode).debug("Trying to unsubscribe: " + SubscriptionId);
+		Agent agent = new Agent();
 		agent.initialize();
 		Map<String, GCPSubscriber> gsubs = agent.getGcpSubscribers();
 		GCPSubscriber sub = gsubs.get(SubscriptionId+"-"+ProjectId);
 		
 		if(sub == null)
 		{
-			Core.getLogger(GCPAgent.LogNode).warn("No Subscriber found!");
+			Core.getLogger(Agent.LogNode).warn("No Subscriber found!");
 		}
 		else
 		{
-			Core.getLogger(GCPAgent.LogNode).debug("Subscriber to stop: " + sub.getSubscriber());
+			Core.getLogger(Agent.LogNode).debug("Subscriber to stop: " + sub.getSubscriber());
 		}
 
 		try {
-			Core.getLogger(GCPAgent.LogNode).debug("Trying to stop: " + sub.getSubscriber());
+			Core.getLogger(Agent.LogNode).debug("Trying to stop: " + sub.getSubscriber());
 			sub.stop();
 		}
 		catch(Exception e)
 		{
-			Core.getLogger(GCPAgent.LogNode).error("Error stopping sub: "+ e.getMessage());
+			Core.getLogger(Agent.LogNode).error("Error stopping sub: "+ e.getMessage());
 		}
 		
 		agent.pullSub(SubscriptionId+"-"+sub.getProjectId());
-		Core.getLogger(GCPAgent.LogNode).debug("Listening to: "+agent.getGcpSubscribers().size() + " Subscriptions");
+		Core.getLogger(Agent.LogNode).debug("Listening to: "+agent.getGcpSubscribers().size() + " Subscriptions");
 
 		return true;
 		// END USER CODE

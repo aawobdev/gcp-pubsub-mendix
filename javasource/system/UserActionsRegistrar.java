@@ -14,6 +14,7 @@ public class UserActionsRegistrar
     registrator.bundleComponentLoaded();
     registrator.registerUserAction(gcpiot.actions.getProjectId.class);
     registrator.registerUserAction(gcpiot.actions.publishToGCPTopic.class);
+    registrator.registerUserAction(gcpiot.actions.sendCommand.class);
     registrator.registerUserAction(gcpiot.actions.startGCPAgent.class);
     registrator.registerUserAction(gcpiot.actions.stopGCPAgent.class);
     registrator.registerUserAction(gcpiot.actions.subscribeToGCPSub.class);

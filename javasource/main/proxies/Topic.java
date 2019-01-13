@@ -20,7 +20,8 @@ public class Topic
 	 */
 	public enum MemberNames
 	{
-		Name("Name");
+		Name("Name"),
+		Topic_Project("Main.Topic_Project");
 
 		private java.lang.String metaName;
 
@@ -149,6 +150,49 @@ public class Topic
 	public final void setName(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String name)
 	{
 		getMendixObject().setValue(context, MemberNames.Name.toString(), name);
+	}
+
+	/**
+	 * @return value of Topic_Project
+	 */
+	public final gcpiot.proxies.Project getTopic_Project() throws com.mendix.core.CoreException
+	{
+		return getTopic_Project(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Topic_Project
+	 */
+	public final gcpiot.proxies.Project getTopic_Project(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		gcpiot.proxies.Project result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Topic_Project.toString());
+		if (identifier != null)
+			result = gcpiot.proxies.Project.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of Topic_Project
+	 * @param topic_project
+	 */
+	public final void setTopic_Project(gcpiot.proxies.Project topic_project)
+	{
+		setTopic_Project(getContext(), topic_project);
+	}
+
+	/**
+	 * Set value of Topic_Project
+	 * @param context
+	 * @param topic_project
+	 */
+	public final void setTopic_Project(com.mendix.systemwideinterfaces.core.IContext context, gcpiot.proxies.Project topic_project)
+	{
+		if (topic_project == null)
+			getMendixObject().setValue(context, MemberNames.Topic_Project.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.Topic_Project.toString(), topic_project.getMendixObject().getId());
 	}
 
 	/**

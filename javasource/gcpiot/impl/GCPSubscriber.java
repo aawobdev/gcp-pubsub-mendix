@@ -17,14 +17,14 @@ public class GCPSubscriber {
 	private Subscriber subscriber;
 	private Credentials credentials;
 	private ProjectSubscriptionName subscriptionName;
-	private GCPMessageReceiver receiver;
+	private MessageReceiver receiver;
 	private String microflowToExecute;
 	private ExecutorService pool;
 	private InputStream authStream;
 	
 	public GCPSubscriber(String subName, String projectId, InputStream inputStream, String mf) {
 		this.subscriptionName = ProjectSubscriptionName.of(projectId, subName);
-		Core.getLogger(GCPAgent.LogNode).debug("ProjectSubscriptionName: " + this.subscriptionName.getProject() + "-" + this.subscriptionName.getSubscription());
+		Core.getLogger(Agent.LogNode).debug("ProjectSubscriptionName: " + this.subscriptionName.getProject() + "-" + this.subscriptionName.getSubscription());
 		this.projectId = projectId;
 		this.subscriberId = this.subscriptionName.getSubscription() + "-" + this.projectId;
 		this.microflowToExecute = mf;
@@ -38,7 +38,7 @@ public class GCPSubscriber {
 	
 			GCPMessageReceiver receiver =  new GCPMessageReceiver();
 			this.receiver = receiver;
-			setSubscriber(Subscriber.newBuilder(getSubscriptionName(), receiver).setCredentialsProvider(new GCPCredentialProvider(this.authStream)).build());
+			setSubscriber(Subscriber.newBuilder(getSubscriptionName(), receiver).setCredentialsProvider(new CredentialProvider(this.authStream)).build());
 			receiver.setSubber(this);
 			
 		} 
@@ -57,12 +57,12 @@ public class GCPSubscriber {
 		        new Subscriber.Listener() {
 		          public void failed(Subscriber.State from, Throwable failure) {
 		        	  //TODO
-		        	  Core.getLogger(GCPAgent.LogNode).error("Failure: " + from + " " + failure.getMessage());
+		        	  Core.getLogger(Agent.LogNode).error("Failure: " + from + " " + failure.getMessage());
 		          }
 		        },
 		        this.pool);
 		getSubscriber().startAsync().awaitRunning();//.awaitRunning();
-		Core.getLogger(GCPAgent.LogNode).debug("State: "+ getSubscriber().state());
+		Core.getLogger(Agent.LogNode).debug("State: "+ getSubscriber().state());
 		
 		return this;
 	}
@@ -130,7 +130,7 @@ public class GCPSubscriber {
 		return receiver;
 	}
 
-	public void setReceiver(GCPMessageReceiver receiver) {
+	public void setReceiver(MessageReceiver receiver) {
 		this.receiver = receiver;
 	}
 }

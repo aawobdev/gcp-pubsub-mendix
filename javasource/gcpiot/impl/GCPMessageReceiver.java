@@ -17,7 +17,7 @@ public class GCPMessageReceiver implements MessageReceiver {
 
 	public GCPMessageReceiver() {
 		super();
-		Core.getLogger(GCPAgent.LogNode).debug("Message Receiver registered");
+		Core.getLogger(Agent.LogNode).debug("Message Receiver registered");
 	}
 
 	@Override
@@ -27,18 +27,18 @@ public class GCPMessageReceiver implements MessageReceiver {
 			attributes =  convertMapToJSONObjectString(message.getAttributesMap());
 			String payload = message.getData().toStringUtf8();
 			
-			Core.getLogger(GCPAgent.LogNode).trace("RECEIVED: Attributes: " + attributes);
-			Core.getLogger(GCPAgent.LogNode).debug("Subscription: " + subscription.getSubscriberId());
-			Core.getLogger(GCPAgent.LogNode).debug("RECEIVED: Payload: " + payload);
+			Core.getLogger(Agent.LogNode).trace("RECEIVED: Attributes: " + attributes);
+			Core.getLogger(Agent.LogNode).debug("Subscription: " + subscription.getSubscriberId());
+			Core.getLogger(Agent.LogNode).debug("RECEIVED: Payload: " + payload);
 
 			final ImmutableMap map = ImmutableMap.of("Attributes", attributes, "Payload", payload);
 
 			IContext ctx = Core.createSystemContext();
-			Core.getLogger(GCPAgent.LogNode).debug("MF: "+subscription.getMicroflowToExecute());
+			Core.getLogger(Agent.LogNode).debug("MF: "+subscription.getMicroflowToExecute());
 
 			Core.executeAsync(ctx, subscription.getMicroflowToExecute(), true, map);
 		} catch (Exception e1) {
-			Core.getLogger(GCPAgent.LogNode).error(e1.getMessage());
+			Core.getLogger(Agent.LogNode).error(e1.getMessage());
 		}
 		consumer.ack();
 	}

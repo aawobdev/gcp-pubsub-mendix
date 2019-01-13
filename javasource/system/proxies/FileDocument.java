@@ -72,11 +72,11 @@ public class FileDocument
 	 */
 	public static system.proxies.FileDocument initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("GCPIoT.GCPCredentials", mendixObject.getType()))
-			return gcpiot.proxies.GCPCredentials.initialize(context, mendixObject);
-
 		if (com.mendix.core.Core.isSubClassOf("System.Image", mendixObject.getType()))
 			return system.proxies.Image.initialize(context, mendixObject);
+
+		if (com.mendix.core.Core.isSubClassOf("GCPIoT.Project", mendixObject.getType()))
+			return gcpiot.proxies.Project.initialize(context, mendixObject);
 
 		return new system.proxies.FileDocument(context, mendixObject);
 	}

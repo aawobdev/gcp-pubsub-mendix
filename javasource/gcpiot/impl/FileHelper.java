@@ -27,7 +27,7 @@ public class FileHelper {
 			JsonObject j = (JsonObject)p.parse(new InputStreamReader(stream));
 			
 			String ProjectId = j.get("project_id").getAsString();
-			Core.getLogger(GCPAgent.LogNode).debug("ProjectId From Credentials: "+ProjectId);
+			Core.getLogger(Agent.LogNode).debug("ProjectId From Credentials: "+ProjectId);
 			
 			return ProjectId;
 		}

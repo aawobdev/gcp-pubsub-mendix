@@ -1,5 +1,5 @@
 <ivy-module version="2.0">
-    <info organisation="com.mendix" module="mxawsconnectors"/>
+    <info organisation="com.mendix" module="gcpiot"/>
     <configurations defaultconfmapping="default">
         <conf name="default" description="run in modeler" extends="export"/>
         <conf name="export" description="connector export dependencies only"/>
@@ -7,5 +7,7 @@
     <dependencies>
 		<!-- for google pub/sub -->
 		<dependency org="com.google.cloud" name="google-cloud-pubsub" rev="1.55.0"/>
+		<!-- for google iot -->
+		<dependency org="com.google.cloud" name="google-cloud-iot" rev="0.77.0-beta"/>
     </dependencies>
 </ivy-module>

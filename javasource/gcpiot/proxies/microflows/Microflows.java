@@ -14,7 +14,7 @@ import com.mendix.systemwideinterfaces.core.IContext;
 public class Microflows
 {
 	// These are the microflows for the GCPIoT module
-	public static void aCo_SetProjectIdFromCredentialsFile(IContext context, gcpiot.proxies.GCPCredentials _gCPCredentials)
+	public static void aCo_SetProjectIdFromCredentialsFile(IContext context, gcpiot.proxies.Project _gCPCredentials)
 	{
 		try
 		{
@@ -53,7 +53,7 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void eXAMPLE_Subscribe(IContext context, gcpiot.proxies.GCPCredentials _gCPCredentials, java.lang.String _subscriptionName)
+	public static void eXAMPLE_Subscribe(IContext context, gcpiot.proxies.Project _gCPCredentials, java.lang.String _subscriptionName)
 	{
 		try
 		{

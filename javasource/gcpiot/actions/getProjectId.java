@@ -17,7 +17,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 public class getProjectId extends CustomJavaAction<java.lang.String>
 {
 	private IMendixObject __CredentialsFile;
-	private gcpiot.proxies.GCPCredentials CredentialsFile;
+	private gcpiot.proxies.Project CredentialsFile;
 
 	public getProjectId(IContext context, IMendixObject CredentialsFile)
 	{
@@ -28,7 +28,7 @@ public class getProjectId extends CustomJavaAction<java.lang.String>
 	@Override
 	public java.lang.String executeAction() throws Exception
 	{
-		this.CredentialsFile = __CredentialsFile == null ? null : gcpiot.proxies.GCPCredentials.initialize(getContext(), __CredentialsFile);
+		this.CredentialsFile = __CredentialsFile == null ? null : gcpiot.proxies.Project.initialize(getContext(), __CredentialsFile);
 
 		// BEGIN USER CODE
 		return FileHelper.getProjectId(this.getContext(), __CredentialsFile);

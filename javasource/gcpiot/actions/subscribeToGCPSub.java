@@ -14,7 +14,7 @@ import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import gcpiot.impl.FileHelper;
-import gcpiot.impl.GCPAgent;
+import gcpiot.impl.Agent;
 import gcpiot.impl.GCPSubscriber;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
@@ -53,7 +53,7 @@ public class subscribeToGCPSub extends CustomJavaAction<java.lang.String>
 		this.CredentialsFile = __CredentialsFile == null ? null : system.proxies.FileDocument.initialize(getContext(), __CredentialsFile);
 
 		// BEGIN USER CODE
-		GCPAgent agent = new GCPAgent();
+		Agent agent = new Agent();
 		String projectId = FileHelper.getProjectId(this.getContext(), __CredentialsFile);
 		
 		if (agent.getSubscriber(SubscriptionId + "-" + projectId) == null)
@@ -62,11 +62,11 @@ public class subscribeToGCPSub extends CustomJavaAction<java.lang.String>
 			InputStream credentialsInputFile = FileHelper.getCredentialsFileStream(this.getContext(),__CredentialsFile);		
 			GCPSubscriber subscriber = new GCPSubscriber(SubscriptionId, projectId, credentialsInputFile, OnMessageMicroflow).subscribe().start();
 			agent.pushSub(subscriber);
-			Core.getLogger(GCPAgent.LogNode).debug("Listening to: "+agent.getGcpSubscribers().size() + " Subscriptions");
+			Core.getLogger(Agent.LogNode).debug("Listening to: "+agent.getGcpSubscribers().size() + " Subscriptions");
 		}
 		else
 		{
-			Core.getLogger(GCPAgent.LogNode).info(SubscriptionId + " already subscribed");
+			Core.getLogger(Agent.LogNode).info(SubscriptionId + " already subscribed");
 		}
 		return projectId;
 		// END USER CODE

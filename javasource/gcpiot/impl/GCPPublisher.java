@@ -30,14 +30,14 @@ public class GCPPublisher {
 		//No idea
 		this.futures = new ArrayList<>();
 		
-		Core.getLogger(GCPAgent.LogNode).debug("Trying to create publisher...");
+		Core.getLogger(Agent.LogNode).debug("Trying to create publisher...");
 		
 		try {
-			this.publisher = Publisher.newBuilder(topicName).setCredentialsProvider(new GCPCredentialProvider(authStream)).build();
+			this.publisher = Publisher.newBuilder(topicName).setCredentialsProvider(new CredentialProvider(authStream)).build();
 		}
 		catch(Exception e)
 		{
-			Core.getLogger(GCPAgent.LogNode).error("Error creating publisher: " + e.getStackTrace());
+			Core.getLogger(Agent.LogNode).error("Error creating publisher: " + e.getStackTrace());
 		}
 	}
 	
@@ -52,7 +52,7 @@ public class GCPPublisher {
 	        // Schedule a message to be published. Messages are automatically batched.
 	        ApiFuture<String> future = publisher.publish(pubsubMessage);
 	        this.futures.add(future);
-	        Core.getLogger(GCPAgent.LogNode).debug("Future: " + future.toString());
+	        Core.getLogger(Agent.LogNode).debug("Future: " + future.toString());
 	        
 			return future;
 		}
@@ -61,12 +61,12 @@ public class GCPPublisher {
 		      List<String> messageIds = ApiFutures.allAsList(this.futures).get();
 
 		      for (String messageId : messageIds) {
-		        Core.getLogger(GCPAgent.LogNode).trace("Future: " + messageId);
+		        Core.getLogger(Agent.LogNode).trace("Future: " + messageId);
 		      }
 
 		      if (publisher != null) {
 		        // When finished with the publisher, shutdown to free up resources.
-		    	  Core.getLogger(GCPAgent.LogNode).warn("NOT shutting down publisher");
+		    	  Core.getLogger(Agent.LogNode).warn("NOT shutting down publisher");
 		        //publisher.shutdown();
 		      }
 		}
