@@ -12,14 +12,10 @@ public class UserActionsRegistrar
   public void registerActions(IActionRegistrator registrator)
   {
     registrator.bundleComponentLoaded();
-    registrator.registerUserAction(gcpiot.actions.getProjectId.class);
-    registrator.registerUserAction(gcpiot.actions.publishToGCPTopic.class);
-    registrator.registerUserAction(gcpiot.actions.sendCommand.class);
-    registrator.registerUserAction(gcpiot.actions.startGCPAgent.class);
-    registrator.registerUserAction(gcpiot.actions.stopGCPAgent.class);
-    registrator.registerUserAction(gcpiot.actions.subscribeToGCPSub.class);
-    registrator.registerUserAction(gcpiot.actions.unsubscribeFromGCPSub.class);
-    registrator.registerUserAction(main.actions.sleep.class);
+    registrator.registerUserAction(gcp.actions.J_LoadCredentialFile.class);
+    registrator.registerUserAction(gcp.actions.J_StartPublisherAgent.class);
+    registrator.registerUserAction(gcp.actions.J_StartRegistryAgent.class);
+    registrator.registerUserAction(gcp.actions.J_StartSubscriberAgent.class);
     registrator.registerUserAction(system.actions.VerifyPassword.class);
   }
 }

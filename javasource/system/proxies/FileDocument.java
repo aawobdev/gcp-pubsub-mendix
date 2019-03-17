@@ -24,8 +24,7 @@ public class FileDocument
 		Name("Name"),
 		DeleteAfterDownload("DeleteAfterDownload"),
 		Contents("Contents"),
-		HasContents("HasContents"),
-		Size("Size");
+		HasContents("HasContents");
 
 		private java.lang.String metaName;
 
@@ -72,11 +71,11 @@ public class FileDocument
 	 */
 	public static system.proxies.FileDocument initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
+		if (com.mendix.core.Core.isSubClassOf("GCP.Credential", mendixObject.getType()))
+			return gcp.proxies.Credential.initialize(context, mendixObject);
+
 		if (com.mendix.core.Core.isSubClassOf("System.Image", mendixObject.getType()))
 			return system.proxies.Image.initialize(context, mendixObject);
-
-		if (com.mendix.core.Core.isSubClassOf("GCPIoT.Project", mendixObject.getType()))
-			return gcpiot.proxies.Project.initialize(context, mendixObject);
 
 		return new system.proxies.FileDocument(context, mendixObject);
 	}
@@ -299,42 +298,6 @@ public class FileDocument
 	public final void setHasContents(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean hascontents)
 	{
 		getMendixObject().setValue(context, MemberNames.HasContents.toString(), hascontents);
-	}
-
-	/**
-	 * @return value of Size
-	 */
-	public final java.lang.Long getSize()
-	{
-		return getSize(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of Size
-	 */
-	public final java.lang.Long getSize(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.Long) getMendixObject().getValue(context, MemberNames.Size.toString());
-	}
-
-	/**
-	 * Set value of Size
-	 * @param size
-	 */
-	public final void setSize(java.lang.Long size)
-	{
-		setSize(getContext(), size);
-	}
-
-	/**
-	 * Set value of Size
-	 * @param context
-	 * @param size
-	 */
-	public final void setSize(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Long size)
-	{
-		getMendixObject().setValue(context, MemberNames.Size.toString(), size);
 	}
 
 	/**
