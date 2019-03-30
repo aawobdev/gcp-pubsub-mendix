@@ -15,6 +15,29 @@ public class Registry
 	 */
 	public static final java.lang.String entityName = "IoT.Registry";
 
+	/**
+	 * Enum describing members of this entity
+	 */
+	public enum MemberNames
+	{
+		_id("_id"),
+		RegionId("RegionId"),
+		Registry_Project("IoT.Registry_Project");
+
+		private java.lang.String metaName;
+
+		MemberNames(java.lang.String s)
+		{
+			metaName = s;
+		}
+
+		@Override
+		public java.lang.String toString()
+		{
+			return metaName;
+		}
+	}
+
 	public Registry(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		this(context, com.mendix.core.Core.instantiate(context, "IoT.Registry"));
@@ -94,6 +117,121 @@ public class Registry
 	{
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
+	/**
+	 * @return value of _id
+	 */
+	public final java.lang.String get_id()
+	{
+		return get_id(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of _id
+	 */
+	public final java.lang.String get_id(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames._id.toString());
+	}
+
+	/**
+	 * Set value of _id
+	 * @param _id
+	 */
+	public final void set_id(java.lang.String _id)
+	{
+		set_id(getContext(), _id);
+	}
+
+	/**
+	 * Set value of _id
+	 * @param context
+	 * @param _id
+	 */
+	public final void set_id(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String _id)
+	{
+		getMendixObject().setValue(context, MemberNames._id.toString(), _id);
+	}
+
+	/**
+	 * @return value of RegionId
+	 */
+	public final java.lang.String getRegionId()
+	{
+		return getRegionId(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of RegionId
+	 */
+	public final java.lang.String getRegionId(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.RegionId.toString());
+	}
+
+	/**
+	 * Set value of RegionId
+	 * @param regionid
+	 */
+	public final void setRegionId(java.lang.String regionid)
+	{
+		setRegionId(getContext(), regionid);
+	}
+
+	/**
+	 * Set value of RegionId
+	 * @param context
+	 * @param regionid
+	 */
+	public final void setRegionId(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String regionid)
+	{
+		getMendixObject().setValue(context, MemberNames.RegionId.toString(), regionid);
+	}
+
+	/**
+	 * @return value of Registry_Project
+	 */
+	public final main.proxies.Project getRegistry_Project() throws com.mendix.core.CoreException
+	{
+		return getRegistry_Project(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Registry_Project
+	 */
+	public final main.proxies.Project getRegistry_Project(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		main.proxies.Project result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Registry_Project.toString());
+		if (identifier != null)
+			result = main.proxies.Project.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of Registry_Project
+	 * @param registry_project
+	 */
+	public final void setRegistry_Project(main.proxies.Project registry_project)
+	{
+		setRegistry_Project(getContext(), registry_project);
+	}
+
+	/**
+	 * Set value of Registry_Project
+	 * @param context
+	 * @param registry_project
+	 */
+	public final void setRegistry_Project(com.mendix.systemwideinterfaces.core.IContext context, main.proxies.Project registry_project)
+	{
+		if (registry_project == null)
+			getMendixObject().setValue(context, MemberNames.Registry_Project.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.Registry_Project.toString(), registry_project.getMendixObject().getId());
+	}
+
 	/**
 	 * @return the IMendixObject instance of this proxy for use in the Core interface.
 	 */

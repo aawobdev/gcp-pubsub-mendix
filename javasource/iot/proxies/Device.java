@@ -20,6 +20,7 @@ public class Device
 	 */
 	public enum MemberNames
 	{
+		_id("_id"),
 		Device_Registry("IoT.Device_Registry"),
 		Telemetry("IoT.Telemetry"),
 		State("IoT.State");
@@ -117,6 +118,42 @@ public class Device
 	{
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
+	/**
+	 * @return value of _id
+	 */
+	public final java.lang.String get_id()
+	{
+		return get_id(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of _id
+	 */
+	public final java.lang.String get_id(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames._id.toString());
+	}
+
+	/**
+	 * Set value of _id
+	 * @param _id
+	 */
+	public final void set_id(java.lang.String _id)
+	{
+		set_id(getContext(), _id);
+	}
+
+	/**
+	 * Set value of _id
+	 * @param context
+	 * @param _id
+	 */
+	public final void set_id(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String _id)
+	{
+		getMendixObject().setValue(context, MemberNames._id.toString(), _id);
+	}
+
 	/**
 	 * @return value of Device_Registry
 	 */

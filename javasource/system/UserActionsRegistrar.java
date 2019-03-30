@@ -16,6 +16,7 @@ public class UserActionsRegistrar
     registrator.registerUserAction(gcp.actions.J_LoadCredentialFile.class);
     registrator.registerUserAction(gcp.actions.J_PublishToTopic.class);
     registrator.registerUserAction(gcp.actions.J_RemoveListenerFromSubscription.class);
+    registrator.registerUserAction(gcp.actions.J_SendCommand.class);
     registrator.registerUserAction(gcp.actions.J_StartPublisherAgent.class);
     registrator.registerUserAction(gcp.actions.J_StartRegistryAgent.class);
     registrator.registerUserAction(gcp.actions.J_StartSubscriberAgent.class);

@@ -27,6 +27,30 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
+	public static void gCPShutDown(IContext context)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			Core.execute(context, "Main.GCPShutDown", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static boolean gCPStartup(IContext context)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			return (java.lang.Boolean)Core.execute(context, "Main.GCPStartup", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
 	public static void iVK_ShowCredentials(IContext context, main.proxies.Project _project)
 	{
 		try
