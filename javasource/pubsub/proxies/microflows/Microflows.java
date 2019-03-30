@@ -28,6 +28,33 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
+	public static void iVK_PublishMessage(IContext context, pubsub.proxies.PublishHelper _publishHelper)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("PublishHelper", _publishHelper == null ? null : _publishHelper.getMendixObject());
+			Core.execute(context, "PubSub.IVK_PublishMessage", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_ShowNewPublish(IContext context, main.proxies.Project _project, pubsub.proxies.Topic _topic)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("Project", _project == null ? null : _project.getMendixObject());
+			params.put("Topic", _topic == null ? null : _topic.getMendixObject());
+			Core.execute(context, "PubSub.IVK_ShowNewPublish", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
 	public static void iVK_ShowNewSubscription(IContext context, pubsub.proxies.Topic _topic)
 	{
 		try
@@ -48,6 +75,20 @@ public class Microflows
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
 			params.put("Project", _project == null ? null : _project.getMendixObject());
 			Core.execute(context, "PubSub.IVK_ShowNewTopic", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_StopListeningToSubscription(IContext context, pubsub.proxies.Subscription _subscription, pubsub.proxies.Topic _topic)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("Subscription", _subscription == null ? null : _subscription.getMendixObject());
+			params.put("Topic", _topic == null ? null : _topic.getMendixObject());
+			Core.execute(context, "PubSub.IVK_StopListeningToSubscription", params);
 		}
 		catch (CoreException e)
 		{
