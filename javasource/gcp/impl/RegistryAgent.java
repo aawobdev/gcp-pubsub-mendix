@@ -3,7 +3,6 @@ package gcp.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.mendix.core.Core;
 import gcp.impl.GCPRegistry;
 
 public class RegistryAgent {	

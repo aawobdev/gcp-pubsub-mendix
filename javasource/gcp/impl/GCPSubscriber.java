@@ -8,7 +8,6 @@ import com.google.auth.Credentials;
 import com.google.cloud.pubsub.v1.MessageReceiver;
 import com.google.cloud.pubsub.v1.Subscriber;
 import com.google.pubsub.v1.ProjectSubscriptionName;
-import com.mendix.core.Core;
 import gcp.impl.CredentialProvider;
 import gcp.impl.GCPMessageReceiver;
 

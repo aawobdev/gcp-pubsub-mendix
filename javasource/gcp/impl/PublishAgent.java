@@ -2,9 +2,6 @@ package gcp.impl;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import com.google.cloud.GcpLaunchStage;
-import com.mendix.core.Core;
 import gcp.impl.GCPPublisher;
 
 public class PublishAgent {	

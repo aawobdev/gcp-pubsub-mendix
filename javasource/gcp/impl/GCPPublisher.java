@@ -10,7 +10,6 @@ import com.google.cloud.pubsub.v1.Publisher;
 import com.google.protobuf.ByteString;
 import com.google.pubsub.v1.ProjectTopicName;
 import com.google.pubsub.v1.PubsubMessage;
-import com.mendix.core.Core;
 
 import gcp.impl.CredentialProvider;
 

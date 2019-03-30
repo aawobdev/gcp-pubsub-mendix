@@ -11,7 +11,6 @@ import com.google.cloud.iot.v1.DeviceName;
 import com.google.cloud.iot.v1.SendCommandToDeviceRequest;
 import com.google.cloud.iot.v1.SendCommandToDeviceResponse;
 import com.google.protobuf.ByteString;
-import com.mendix.core.Core;
 
 
 import gcp.impl.CredentialProvider;
