@@ -27,7 +27,7 @@
 <booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.mendix.container.boot.Main"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="gcp_pubsub_mendix"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.net.preferIPv4Stack=true -DMX_LOG_LEVEL=INFO -Djava.library.path=&quot;C:/Program Files/Mendix/7.0.2/runtime/lib/x64;C:/Users/me/Documents/Mendix-Git/gcp-pubsub-mendix/deployment/model/lib/userlib&quot; -Dfile.encoding=UTF-8 -Djava.io.tmpdir=&quot;C:/Users/me/Documents/Mendix-Git/gcp-pubsub-mendix/deployment/data/tmp&quot; -Djava.security.manager -Djava.security.policy==&quot;C:\Users\me\Documents\Mendix-Git\gcp-pubsub-mendix\deployment\data\.policy&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.net.preferIPv4Stack=true -DMX_LOG_LEVEL=INFO -Djava.library.path=&quot;C:/Program Files/Mendix/7.0.2/runtime/lib/x64;C:/Users/me/Documents/Mendix-Git/gcp-pubsub-mendix/deployment/model/lib/userlib&quot; -Dfile.encoding=UTF-8 -Djava.io.tmpdir=&quot;C:/Users/me/Documents/Mendix-Git/gcp-pubsub-mendix/deployment/data/tmp&quot;"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="C:/Users/me/Documents/Mendix-Git/gcp-pubsub-mendix/deployment"/>
 <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="C:/Users/me/Documents/Mendix-Git/gcp-pubsub-mendix/deployment"/>
 </launchConfiguration>

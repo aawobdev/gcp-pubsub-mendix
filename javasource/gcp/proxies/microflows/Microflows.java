@@ -14,19 +14,6 @@ import com.mendix.systemwideinterfaces.core.IContext;
 public class Microflows
 {
 	// These are the microflows for the GCP module
-	public static void aT_SaveCredentialFile(IContext context, gcp.proxies.Credential _credential)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("Credential", _credential == null ? null : _credential.getMendixObject());
-			Core.execute(context, "GCP.AT_SaveCredentialFile", params);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
 	public static void gCPShutDown(IContext context)
 	{
 		try
@@ -45,18 +32,6 @@ public class Microflows
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
 			return (java.lang.Boolean)Core.execute(context, "GCP.GCPStartup", params);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
-	public static void sub_SubscribeTopics(IContext context)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			Core.execute(context, "GCP.Sub_SubscribeTopics", params);
 		}
 		catch (CoreException e)
 		{

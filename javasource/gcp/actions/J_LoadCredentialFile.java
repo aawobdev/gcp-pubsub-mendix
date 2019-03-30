@@ -17,7 +17,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 public class J_LoadCredentialFile extends CustomJavaAction<java.lang.String>
 {
 	private IMendixObject __CredentialFile;
-	private gcp.proxies.Credential CredentialFile;
+	private system.proxies.FileDocument CredentialFile;
 
 	public J_LoadCredentialFile(IContext context, IMendixObject CredentialFile)
 	{
@@ -28,7 +28,7 @@ public class J_LoadCredentialFile extends CustomJavaAction<java.lang.String>
 	@Override
 	public java.lang.String executeAction() throws Exception
 	{
-		this.CredentialFile = __CredentialFile == null ? null : gcp.proxies.Credential.initialize(getContext(), __CredentialFile);
+		this.CredentialFile = __CredentialFile == null ? null : system.proxies.FileDocument.initialize(getContext(), __CredentialFile);
 
 		// BEGIN USER CODE
 		return FileHelper.getProjectId(this.getContext(), __CredentialFile);

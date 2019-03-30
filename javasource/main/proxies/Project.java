@@ -155,7 +155,7 @@ public class Project
 	/**
 	 * @return value of Project_Credential
 	 */
-	public final gcp.proxies.Credential getProject_Credential() throws com.mendix.core.CoreException
+	public final main.proxies.Credential getProject_Credential() throws com.mendix.core.CoreException
 	{
 		return getProject_Credential(getContext());
 	}
@@ -164,12 +164,12 @@ public class Project
 	 * @param context
 	 * @return value of Project_Credential
 	 */
-	public final gcp.proxies.Credential getProject_Credential(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final main.proxies.Credential getProject_Credential(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		gcp.proxies.Credential result = null;
+		main.proxies.Credential result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Project_Credential.toString());
 		if (identifier != null)
-			result = gcp.proxies.Credential.load(context, identifier);
+			result = main.proxies.Credential.load(context, identifier);
 		return result;
 	}
 
@@ -177,7 +177,7 @@ public class Project
 	 * Set value of Project_Credential
 	 * @param project_credential
 	 */
-	public final void setProject_Credential(gcp.proxies.Credential project_credential)
+	public final void setProject_Credential(main.proxies.Credential project_credential)
 	{
 		setProject_Credential(getContext(), project_credential);
 	}
@@ -187,7 +187,7 @@ public class Project
 	 * @param context
 	 * @param project_credential
 	 */
-	public final void setProject_Credential(com.mendix.systemwideinterfaces.core.IContext context, gcp.proxies.Credential project_credential)
+	public final void setProject_Credential(com.mendix.systemwideinterfaces.core.IContext context, main.proxies.Credential project_credential)
 	{
 		if (project_credential == null)
 			getMendixObject().setValue(context, MemberNames.Project_Credential.toString(), null);

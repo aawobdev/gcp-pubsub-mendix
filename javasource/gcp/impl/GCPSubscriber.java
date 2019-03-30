@@ -60,7 +60,7 @@ public class GCPSubscriber {
 		        new Subscriber.Listener() {
 		          public void failed(Subscriber.State from, Throwable failure) {
 		        	  //TODO
-		        	  Logger.error("Failure: " + from + " " + failure.getMessage());
+		        	  Logger.error("Listen Failure: " + from + " " + failure.getMessage());
 		          }
 		        },
 		        this.pool);

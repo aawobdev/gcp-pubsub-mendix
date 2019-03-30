@@ -10,7 +10,6 @@
 package gcp.actions;
 
 import java.io.InputStream;
-
 import com.google.api.core.ApiFuture;
 import com.google.api.core.ApiFutureCallback;
 import com.google.api.core.ApiFutures;
@@ -18,12 +17,10 @@ import com.google.api.gax.rpc.ApiException;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-
 import gcp.impl.FileHelper;
 import gcp.impl.GCPPublisher;
 import gcp.impl.Logger;
 import gcp.impl.PublishAgent;
-
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class J_PublishToTopic extends CustomJavaAction<java.lang.String>

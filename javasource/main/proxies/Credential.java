@@ -2,14 +2,14 @@
 //
 // WARNING: Code you write here will be lost the next time you deploy the project.
 
-package gcp.proxies;
+package main.proxies;
 
 public class Credential extends system.proxies.FileDocument
 {
 	/**
 	 * Internal name of this entity
 	 */
-	public static final java.lang.String entityName = "GCP.Credential";
+	public static final java.lang.String entityName = "Main.Credential";
 
 	/**
 	 * Enum describing members of this entity
@@ -22,7 +22,8 @@ public class Credential extends system.proxies.FileDocument
 		Name("Name"),
 		DeleteAfterDownload("DeleteAfterDownload"),
 		Contents("Contents"),
-		HasContents("HasContents");
+		HasContents("HasContents"),
+		Project_Credential("Main.Project_Credential");
 
 		private java.lang.String metaName;
 
@@ -40,45 +41,45 @@ public class Credential extends system.proxies.FileDocument
 
 	public Credential(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "GCP.Credential"));
+		this(context, com.mendix.core.Core.instantiate(context, "Main.Credential"));
 	}
 
 	protected Credential(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject credentialMendixObject)
 	{
 		super(context, credentialMendixObject);
-		if (!com.mendix.core.Core.isSubClassOf("GCP.Credential", credentialMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a GCP.Credential");
+		if (!com.mendix.core.Core.isSubClassOf("Main.Credential", credentialMendixObject.getType()))
+			throw new java.lang.IllegalArgumentException("The given object is not a Main.Credential");
 	}
 
 	/**
 	 * @deprecated Use 'Credential.load(IContext, IMendixIdentifier)' instead.
 	 */
 	@Deprecated
-	public static gcp.proxies.Credential initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
+	public static main.proxies.Credential initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
 	{
-		return gcp.proxies.Credential.load(context, mendixIdentifier);
+		return main.proxies.Credential.load(context, mendixIdentifier);
 	}
 
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
 	 */
-	public static gcp.proxies.Credential initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
+	public static main.proxies.Credential initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		return new gcp.proxies.Credential(context, mendixObject);
+		return new main.proxies.Credential(context, mendixObject);
 	}
 
-	public static gcp.proxies.Credential load(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
+	public static main.proxies.Credential load(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
 	{
 		com.mendix.systemwideinterfaces.core.IMendixObject mendixObject = com.mendix.core.Core.retrieveId(context, mendixIdentifier);
-		return gcp.proxies.Credential.initialize(context, mendixObject);
+		return main.proxies.Credential.initialize(context, mendixObject);
 	}
 
-	public static java.util.List<gcp.proxies.Credential> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
+	public static java.util.List<main.proxies.Credential> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
-		java.util.List<gcp.proxies.Credential> result = new java.util.ArrayList<gcp.proxies.Credential>();
-		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//GCP.Credential" + xpathConstraint))
-			result.add(gcp.proxies.Credential.initialize(context, obj));
+		java.util.List<main.proxies.Credential> result = new java.util.ArrayList<main.proxies.Credential>();
+		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//Main.Credential" + xpathConstraint))
+			result.add(main.proxies.Credential.initialize(context, obj));
 		return result;
 	}
 
@@ -154,6 +155,49 @@ public class Credential extends system.proxies.FileDocument
 		getMendixObject().setValue(context, MemberNames.IsLoaded.toString(), isloaded);
 	}
 
+	/**
+	 * @return value of Project_Credential
+	 */
+	public final main.proxies.Project getProject_Credential() throws com.mendix.core.CoreException
+	{
+		return getProject_Credential(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Project_Credential
+	 */
+	public final main.proxies.Project getProject_Credential(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		main.proxies.Project result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Project_Credential.toString());
+		if (identifier != null)
+			result = main.proxies.Project.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of Project_Credential
+	 * @param project_credential
+	 */
+	public final void setProject_Credential(main.proxies.Project project_credential)
+	{
+		setProject_Credential(getContext(), project_credential);
+	}
+
+	/**
+	 * Set value of Project_Credential
+	 * @param context
+	 * @param project_credential
+	 */
+	public final void setProject_Credential(com.mendix.systemwideinterfaces.core.IContext context, main.proxies.Project project_credential)
+	{
+		if (project_credential == null)
+			getMendixObject().setValue(context, MemberNames.Project_Credential.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.Project_Credential.toString(), project_credential.getMendixObject().getId());
+	}
+
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -162,7 +206,7 @@ public class Credential extends system.proxies.FileDocument
 
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
-			final gcp.proxies.Credential that = (gcp.proxies.Credential) obj;
+			final main.proxies.Credential that = (main.proxies.Credential) obj;
 			return getMendixObject().equals(that.getMendixObject());
 		}
 		return false;
@@ -179,7 +223,7 @@ public class Credential extends system.proxies.FileDocument
 	 */
 	public static java.lang.String getType()
 	{
-		return "GCP.Credential";
+		return "Main.Credential";
 	}
 
 	/**

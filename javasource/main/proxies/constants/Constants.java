@@ -2,16 +2,16 @@
 //
 // WARNING: Code you write here will be lost the next time you deploy the project.
 
-package gcp.proxies.constants;
+package main.proxies.constants;
 
 import com.mendix.core.Core;
 
 public class Constants
 {
-	// These are the constants for the GCP module
+	// These are the constants for the Main module
 
 	public static boolean getSubscribeOnStartup()
 	{
-		return (java.lang.Boolean)Core.getConfiguration().getConstantValue("GCP.SubscribeOnStartup");
+		return (java.lang.Boolean)Core.getConfiguration().getConstantValue("Main.SubscribeOnStartup");
 	}
 }
