@@ -28,14 +28,14 @@ public class J_PublishToTopic extends CustomJavaAction<java.lang.String>
 	private IMendixObject __CredentialsFile;
 	private system.proxies.FileDocument CredentialsFile;
 	private java.lang.String TopicId;
-	private java.lang.String Payload;
+	private java.lang.String PayloadBody;
 
-	public J_PublishToTopic(IContext context, IMendixObject CredentialsFile, java.lang.String TopicId, java.lang.String Payload)
+	public J_PublishToTopic(IContext context, IMendixObject CredentialsFile, java.lang.String TopicId, java.lang.String PayloadBody)
 	{
 		super(context);
 		this.__CredentialsFile = CredentialsFile;
 		this.TopicId = TopicId;
-		this.Payload = Payload;
+		this.PayloadBody = PayloadBody;
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class J_PublishToTopic extends CustomJavaAction<java.lang.String>
 
 			if(p!=null)
 			{
-				future = p.publish(Payload);
+				future = p.publish(PayloadBody);
 				ApiFutures.addCallback(
 						future,
 						new ApiFutureCallback<String>() {
@@ -80,7 +80,7 @@ public class J_PublishToTopic extends CustomJavaAction<java.lang.String>
 									Logger.error(apiException.getStatusCode().getCode().toString());
 									Logger.error("is Retry: " + apiException.isRetryable());
 								}
-								Logger.error("Error publishing message : " + Payload);
+								Logger.error("Error publishing message : " + PayloadBody);
 							}
 
 							@Override
