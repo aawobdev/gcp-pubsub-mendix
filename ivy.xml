@@ -9,5 +9,8 @@
 		<dependency org="com.google.cloud" name="google-cloud-pubsub" rev="1.55.0"/>
 		<!-- for google iot -->
 		<dependency org="com.google.cloud" name="google-cloud-iot" rev="0.77.0-beta"/>
+		<!-- for google big query -->
+		<!-- https://mvnrepository.com/artifact/com.google.cloud/google-cloud-bigquery -->
+		<dependency org="com.google.cloud" name="google-cloud-bigquery" rev="1.85.0"/>
     </dependencies>
 </ivy-module>
