@@ -19,6 +19,7 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import gcp.impl.CredentialProvider;
 import gcp.impl.FileHelper;
+import gcp.impl.Logger;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class J_GetDatasets extends CustomJavaAction<java.util.List<IMendixObject>>
@@ -48,7 +49,7 @@ public class J_GetDatasets extends CustomJavaAction<java.util.List<IMendixObject
 		
 		List<IMendixObject> obList = new ArrayList<IMendixObject>();
 		
-		Core.getLogger("BigQuery").debug("Datasets");
+		Logger.debug("Datasets");
 		for (Dataset dataset : bigquery.listDatasets().iterateAll()) {
 		      IMendixObject newOb = Core.instantiate(ctx, DatasetType);
 		      try {
@@ -56,7 +57,7 @@ public class J_GetDatasets extends CustomJavaAction<java.util.List<IMendixObject
 		    	  obList.add(newOb);
 		      }
 		      catch (Exception e) {
-		    	  Core.getLogger("BigQuery").error("Could not set member:Name, " + e.getMessage());
+		    	  Logger.error("Could not set member:Name, " + e.getMessage());
 		      }
 		      
 		    }

@@ -47,8 +47,11 @@ public class J_AddListenerToSubscription extends CustomJavaAction<java.lang.Bool
 		if (agent.getSubscriber(SubscriptionId + "-" + projectId) == null)
 		{
 			agent.initialize();
+			Logger.debug("Loading credentials");
 			InputStream credentialsInputFile = FileHelper.getCredentialsFileStream(this.getContext(),__CredentialsFile);		
+			Logger.debug("Creating subscriber");
 			GCPSubscriber subscriber = new GCPSubscriber(SubscriptionId, projectId, credentialsInputFile, OnMessageMicroflow).subscribe().start();
+			Logger.debug("Pushing subscriber to list");
 			agent.pushSub(subscriber);
 			Logger.debug("Listening to: "+agent.getGcpSubscribers().size() + " Subscriptions");
 		}

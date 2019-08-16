@@ -14,6 +14,7 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import gcp.impl.CredentialProvider;
 import gcp.impl.FileHelper;
+import gcp.impl.Logger;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.google.cloud.bigquery.BigQuery;
 import com.google.cloud.bigquery.BigQueryOptions;
@@ -52,7 +53,7 @@ public class J_RunQueryReturnJSON extends CustomJavaAction<java.lang.String>
 		
 		String rawResults = "[";
 		
-		Core.getLogger("BigQuery").info("Raw: "+ bigquery.query(queryConfig).toString());
+		Logger.debug("Raw: "+ bigquery.query(queryConfig).toString());
 		
 		for (FieldValueList row : bigquery.query(queryConfig).iterateAll()) {
 			//Core.getLogger("BigQuery").info("Rows: "+row.toString());

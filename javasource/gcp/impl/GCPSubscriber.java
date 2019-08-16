@@ -34,27 +34,29 @@ public class GCPSubscriber {
 	}
 	
 	public GCPSubscriber subscribe() {
+		Logger.debug("Trying to subscribe");
 		this.receiver = null;
 		
 		try {
-	
 			GCPMessageReceiver receiver =  new GCPMessageReceiver();
 			this.receiver = receiver;
 			setSubscriber(Subscriber.newBuilder(getSubscriptionName(), receiver).setCredentialsProvider(new CredentialProvider(this.authStream)).build());
 			receiver.setSubber(this);
-			
 		} 
 
 		catch(Exception e)
 		{
-			e.printStackTrace();
+			Logger.error("Error creating subscriber: " + e.getMessage());
+			//e.printStackTrace();
 		}
 		return this;
 	}
 	
 	public GCPSubscriber start() {
+		Logger.debug("Trying to start");
 		
 		this.pool = Executors.newCachedThreadPool();
+		
 		getSubscriber().addListener(
 		        new Subscriber.Listener() {
 		          public void failed(Subscriber.State from, Throwable failure) {
@@ -63,7 +65,8 @@ public class GCPSubscriber {
 		          }
 		        },
 		        this.pool);
-		getSubscriber().startAsync().awaitRunning();//.awaitRunning();
+		
+		getSubscriber().startAsync();//.awaitRunning();
 		Logger.debug("State: "+ getSubscriber().state());
 		
 		return this;
